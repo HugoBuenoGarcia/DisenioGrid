@@ -1,0 +1,315 @@
+/* 1. Importación de Variables */
+@import url('variables.css');
+
+/* Estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 2. Estructura Principal del Grid (Nivel 1) */
+.bento-container {
+    display: grid;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Media Query: Comportamiento por debajo de 700px (Mobile First) */
+.bento-container {
+    grid-template-columns: 1fr;
+    /* Una columna */
+}
+
+/* Media Query: Comportamiento por encima de 700px (Desktop View) */
+@media (min-width: 700px) {
+    .bento-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Estilos comunes para los ítems del Grid de Nivel 1 */
+.grid-area {
+    background-color: var(--color-background-secondary);
+    border-radius: 18px;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    min-height: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    overflow: hidden;
+}
+
+/* Asignación de áreas en el Grid principal */
+/* Columna 1 */
+.area-1 {
+    grid-area: auto;
+}
+
+.area-2 {
+    grid-area: auto;
+}
+
+.area-3 {
+    grid-area: auto;
+}
+
+/* Columna 2 */
+.area-4 {
+    grid-area: auto;
+}
+
+/* Columna 3 */
+.area-5 {
+    grid-area: auto;
+}
+
+.area-6 {
+    grid-area: auto;
+}
+
+/* 3. Grid Anidado (Nivel 2) */
+.subgrid {
+    display: grid;
+    gap: 10px;
+    height: 100%;
+}
+
+/* Estilos de las celdas del subgrid */
+.subgrid-item {
+    background-color: var(--color-background-primary);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--color-border);
+}
+
+/* Estilos para el Título del ítem de Nivel 1 */
+.grid-area h2 {
+    font-size: var(--font-size-heading-md);
+    margin-bottom: 20px;
+    color: var(--color-accent);
+}
+
+/* Contenido Específico de las Áreas */
+
+/* Área 1: Batería, Almacenamiento, ML */
+.area-1 .subgrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Usando CSS Anidado para las celdas específicas de Área 1 */
+.area-1 .subgrid {
+    .bento-cell-battery {
+        grid-column: 1 / -1;
+        background: linear-gradient(135deg, var(--color-accent), #4CAF50);
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .bento-cell-storage,
+    .bento-cell-ml {
+        text-align: center;
+        justify-content: center;
+
+        span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+    }
+}
+
+/* Área 2: Pantalla XDR */
+.area-2 {
+    padding: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.area-2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.area-2 .text-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 10;
+}
+
+.area-2 .text-overlay h3 {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0;
+    font-weight: 900;
+}
+
+/* Área 3: Chips M1 Pro/Max y Teclado/Micrófonos */
+.area-3 .subgrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.area-3 .subgrid {
+    .bento-cell-chips {
+        grid-column: 1 / 3;
+        background-color: var(--color-background-primary);
+        border: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        img {
+            max-width: 45%;
+            height: auto;
+        }
+    }
+
+    .bento-cell-keyboard {
+        background-color: #333;
+        color: white;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: center;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        span {
+            z-index: 5;
+            font-weight: bold;
+        }
+    }
+
+    .bento-cell-mics {
+        background-color: #e0e0e0;
+        color: black;
+        text-align: center;
+    }
+}
+
+/* Área 4: CPU, Gráficos, Almacenamiento, Memoria */
+.area-4 .subgrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.area-4 .subgrid {
+    .bento-cell-cpu {
+        grid-column: 1 / 2;
+    }
+
+    .bento-cell-graphics {
+        grid-column: 2 / 3;
+    }
+
+    .bento-cell-thermal {
+        grid-column: 1 / 3;
+        background-color: #fce4ec;
+        color: #d81b60;
+        text-align: center;
+    }
+}
+
+/* Estilo para los textos grandes de velocidad */
+.speed-text {
+    font-size: var(--font-size-heading-lg);
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+/* Estilos de las celdas con el factor 'x' */
+.factor-cell span {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Área 5: Puertos y OS */
+.area-5 .subgrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.area-5 .subgrid {
+    .bento-cell-ports {
+        grid-column: 1 / 3;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: var(--color-background-primary);
+
+        span {
+            font-size: 3rem;
+            color: var(--color-text-primary);
+        }
+    }
+
+    .bento-cell-os {
+        grid-column: 1 / 3;
+        background: linear-gradient(45deg, #a755d9, #e91e63);
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+/* Área 6: Audio, Cámara, Almacenamiento/Memoria */
+.area-6 .subgrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.area-6 .subgrid {
+    .bento-cell-audio {
+        grid-column: 1 / 3;
+        text-align: center;
+        background-color: #f7a300;
+        color: white;
+    }
+
+    .bento-cell-camera,
+    .bento-cell-storage-mem {
+        text-align: center;
+        justify-content: center;
+    }
+}

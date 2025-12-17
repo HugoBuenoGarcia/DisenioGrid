@@ -1,0 +1,27 @@
+:root {
+    /* Colores principales - Modo Claro */
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f0f0f0;
+    --color-text-primary: #1c1c1e;
+    --color-text-secondary: #666666;
+    --color-accent: #007aff;
+    --color-border: #cccccc;
+
+    /* Tipografía */
+    --font-family-primary: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-heading-lg: 3rem;
+    --font-size-heading-md: 2rem;
+}
+
+/* Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: #b0b0b0;
+        --color-accent: #0a84ff;
+        --color-border: #444444;
+    }
+}
