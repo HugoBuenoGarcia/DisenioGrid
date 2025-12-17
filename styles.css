@@ -28,7 +28,6 @@ body {
 /* Media Query: Comportamiento por debajo de 700px (Mobile First) */
 .bento-container {
     grid-template-columns: 1fr;
-    /* Una columna */
 }
 
 /* Media Query: Comportamiento por encima de 700px (Desktop View) */
@@ -312,4 +311,5 @@ body {
         text-align: center;
         justify-content: center;
     }
+
 }
