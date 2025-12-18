@@ -1,12 +1,12 @@
 :root {
-    /* Colores principales - Modo Claro */
+    /* Valores por defecto (Light Mode) */
     --color-background-primary: #ffffff;
     --color-background-secondary: #f0f0f0;
     --color-text-primary: #1c1c1e;
     --color-text-secondary: #666666;
     --color-accent: #007aff;
     --color-border: #cccccc;
-
+    
     /* Tipografía */
     --font-family-primary: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-size-base: 16px;
@@ -14,9 +14,9 @@
     --font-size-heading-md: 2rem;
 }
 
-/* Modo Oscuro */
 @media (prefers-color-scheme: dark) {
     :root {
+        /* Sobrescribimos los valores para Dark Mode */
         --color-background-primary: #1c1c1e;
         --color-background-secondary: #2c2c2e;
         --color-text-primary: #ffffff;
